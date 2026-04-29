@@ -16,16 +16,21 @@ public class Program2 {
 		Department department = departmentDao.findById(2);
 		System.out.println(department);
 		
-		System.out.println("=== TEST 2: department findAll ===");
+		System.out.println("\n=== TEST 2: department findAll ===");
 		List<Department> list = departmentDao.findAll();
 		for (Department obj : list) {
 			System.out.println(obj);
 		}
 		
-		System.out.println("=== TEST 3: department insert ===");
+		System.out.println("\n=== TEST 3: department insert ===");
 		Department newDepartment = new Department(null, "Games");
 		departmentDao.insert(newDepartment);
 		System.out.println("Department inserted. New Id: " + newDepartment.getId());
 		
+		System.out.println("\n=== TEST 4: department update ===");
+		department = departmentDao.findById(3);
+		department.setName("New Fashion");
+		departmentDao.update(department);
+		System.out.println("Update completed!");
 	}
 }
